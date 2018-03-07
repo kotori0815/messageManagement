@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:task="http://www.springframework.org/schema/task" xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://www.springframework.org/schema/task
+						http://www.springframework.org/schema/task/spring-task.xsd">
+
+	<!-- 引入config.properties文件 -->
+	<bean id="placeholderConfig"
+		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+				<value>classpath:dubbo.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 定时器开关 -->
+	<task:annotation-driven  scheduler="myScheduler"/>
+	<task:scheduler id="myScheduler" pool-size="20"/>
+
+	<!--注解控测器：自动扫描(自动注入) -->
+	<context:component-scan base-package="com.mktsms">
+		<!-- 排除Controller,spring-mvc.xml中扫描，如果不排除会影响事务管理 -->
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- 导入配置文件 -->
+	<import resource="classpath:spring/dubbo-server-consumer.xml" />
+
+	<bean class="com.common.listener.MyApplicationContextAware" />
+	<bean id="methodExecuteTime" class="com.common.aspect.Aspect" />
+
+	<aop:config>
+		<aop:aspect id="logMethodExecuteTime" ref="methodExecuteTime" >
+			<aop:pointcut id="controllerMethods" expression="execution(* com.msg..*.*(..))" />
+			<aop:around method="methodExecuteTime" pointcut-ref="controllerMethods" />
+		</aop:aspect>
+	</aop:config>
+</beans>
