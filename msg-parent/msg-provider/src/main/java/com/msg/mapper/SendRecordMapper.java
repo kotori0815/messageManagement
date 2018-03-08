@@ -1,6 +1,6 @@
-package com.msg.mapper;package /;
+package com.msg.mapper;
 
-import /.SendRecord;
+import com.msg.entity.SendRecord;
 
 public interface SendRecordMapper {
     int deleteByPrimaryKey(Long id);

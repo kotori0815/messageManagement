@@ -10,16 +10,5 @@
 
 
 	<!-- 使用zookeeper注册中心暴露服务地址 即zookeeper的所在服务器ip地址和端口号 -->
-	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" check="false" />
-
-	<dubbo:reference id="empService" interface="com.user.service.emp.EmpService" version="1.0.0" timeout="20000" retries="0"/>
-
-	<dubbo:reference id="smsSendService" interface="com.sms.service.SmsSendService" version="1.0.0" timeout="20000" retries="0"/>
-
-	<dubbo:reference id="reserveService" interface="com.richgo.thrsys.service.reserve.ThrsysReserveService" version="1.0.0" timeout="20000" retries="0"/>
-
-	<dubbo:reference id="customerAccountService" interface="com.customer.service.CustomerAccountService" version="1.0.0" timeout="120000" retries="0"/>
-
-	<dubbo:reference id="thrsysSaleProjectService" interface="com.richgo.thrsys.service.reserve.ThrsysSaleProjectService" version="1.0.0" timeout="20000" retries="0"/>
 
 </beans>

@@ -1,6 +1,6 @@
-package com.msg.mapper;package /;
+package com.msg.mapper;
 
-import /.CustomerGroupRelation;
+import com.msg.entity.CustomerGroupRelation;
 
 public interface CustomerGroupRelationMapper {
     int deleteByPrimaryKey(Long id);

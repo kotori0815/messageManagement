@@ -165,8 +165,7 @@
 		第四个 .. :通配 方法可以有0个或多个参数 -->
 	<aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
 	<aop:config proxy-target-class="true">
-		todo
-		<aop:pointcut id="serviceMethods" expression="execution(* com.mktsms.service..*.*(..))" />
+		<aop:pointcut id="serviceMethods" expression="execution(* com.msg.service..*.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" order="2" />
 
 		<!--此处配置使得事务控制 回滚失效 暂时注释掉-->

@@ -1,6 +1,6 @@
-package com.msg.mapper;package /;
+package com.msg.mapper;
 
-import /.Message;
+import com.msg.entity.Message;
 
 public interface MessageMapper {
     int deleteByPrimaryKey(Long id);

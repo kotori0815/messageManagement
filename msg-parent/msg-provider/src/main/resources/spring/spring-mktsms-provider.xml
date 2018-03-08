@@ -10,17 +10,14 @@
 	<!-- 使用zookeeper注册中心暴露服务地址 即zookeeper的所在服务器ip地址和端口号 -->
 	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" check="false" />
 	
-	<!-- 客户service -->
-	<bean id="customerGroupService" class="com.mktsms.service.impl.CustomerGroupServiceImpl" />
-	<bean id="mktsmsMessageService" class="com.mktsms.service.impl.MktsmsMessageServiceImpl" />
-	<bean id="mktsmsSendService" class="com.mktsms.service.impl.MktSmsSendServiceImpl" />
-	<bean id="mktsmsApproveService" class="com.mktsms.service.impl.MktSmsApproveServiceImpl" />
-	<bean id="taskService" class="com.mktsms.service.impl.TaskServiceImpl" />
+	<!-- 短信service -->
+	<bean id="userServiceImpl" class="com.msg.service.impl.UserServiceImpl" />
+	<bean id="customerService" class="com.msg.service.impl.CustomerServiceImpl" />
+	<bean id="messageServiceImpl" class="com.msg.service.impl.MessageServiceImpl" />
+
 	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:service interface="com.mktsms.service.CustomerGroupService" ref="customerGroupService" version="1.2.3" retries="0" timeout="10000" />
-	<dubbo:service interface="com.mktsms.service.MktsmsMessageService" ref="mktsmsMessageService" version="1.2.3" retries="0" timeout="60000" />
-	<dubbo:service interface="com.mktsms.service.MktSmsSendService" ref="mktsmsSendService" version="1.2.3" retries="0" timeout="60000" />
-	<dubbo:service interface="com.mktsms.service.MktSmsApproveService" ref="mktsmsApproveService" version="1.2.3" retries="0" timeout="10000" />
-	<dubbo:service interface="com.mktsms.service.TaskService" ref="taskService" version="1.2.3" retries="0" timeout="10000" />
+	<dubbo:service interface="com.msg.service.UserService" ref="userService" version="1.0.0" retries="0" timeout="10000" />
+	<dubbo:service interface="com.msg.service.CustomerService" ref="customerService" version="1.0.0" retries="0" timeout="10000" />
+	<dubbo:service interface="com.msg.service.MessageService" ref="messageService" version="1.0.0" retries="0" timeout="10000" />
 
 </beans>
