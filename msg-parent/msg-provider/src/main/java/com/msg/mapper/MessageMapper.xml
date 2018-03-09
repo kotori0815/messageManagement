@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="/.MessageMapper" >
-  <resultMap id="BaseResultMap" type="/.Message" >
+<mapper namespace="com.msg.mapper.MessageMapper" >
+  <resultMap id="BaseResultMap" type="com.msg.entity.Message" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="VARCHAR" />
@@ -29,7 +29,7 @@
     delete from message
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="/.Message" >
+  <insert id="insert" parameterType="com.msg.entity.Message" >
     insert into message (id, content, status, 
       cust_group, phone_num, memo, 
       create_id, create_time, modify_time, 
@@ -41,7 +41,7 @@
       #{approvalId,jdbcType=VARCHAR}, #{approvalTime,jdbcType=TIMESTAMP}, #{reason,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="/.Message" >
+  <insert id="insertSelective" parameterType="com.msg.entity.Message" >
     insert into message
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -120,7 +120,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="/.Message" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.msg.entity.Message" >
     update message
     <set >
       <if test="content != null" >
@@ -159,7 +159,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="/.Message" >
+  <update id="updateByPrimaryKey" parameterType="com.msg.entity.Message" >
     update message
     set content = #{content,jdbcType=VARCHAR},
       status = #{status,jdbcType=VARCHAR},

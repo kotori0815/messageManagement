@@ -11,9 +11,9 @@
 	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" check="false" />
 	
 	<!-- 短信service -->
-	<bean id="userServiceImpl" class="com.msg.service.impl.UserServiceImpl" />
+	<bean id="userService" class="com.msg.service.impl.UserServiceImpl" />
 	<bean id="customerService" class="com.msg.service.impl.CustomerServiceImpl" />
-	<bean id="messageServiceImpl" class="com.msg.service.impl.MessageServiceImpl" />
+	<bean id="messageService" class="com.msg.service.impl.MessageServiceImpl" />
 
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="com.msg.service.UserService" ref="userService" version="1.0.0" retries="0" timeout="10000" />

@@ -1,6 +1,9 @@
 package com.msg.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private static final long serialVersionUID = -3029414016303258539L;
     private Long id;
 
     private String userName;
@@ -69,5 +72,18 @@ public class User {
 
     public void setSex(String sex) {
         this.sex = sex == null ? null : sex.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", status=" + status +
+                ", role='" + role + '\'' +
+                ", sex='" + sex + '\'' +
+                '}';
     }
 }

@@ -1,6 +1,9 @@
 package com.msg.entity;
 
-public class Menu {
+import java.io.Serializable;
+
+public class Menu implements Serializable {
+    private static final long serialVersionUID = -8796527111552495816L;
     private Long id;
 
     private String name;

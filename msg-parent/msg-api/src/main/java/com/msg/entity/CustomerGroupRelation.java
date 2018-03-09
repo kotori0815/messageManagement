@@ -1,6 +1,9 @@
 package com.msg.entity;
 
-public class CustomerGroupRelation {
+import java.io.Serializable;
+
+public class CustomerGroupRelation implements Serializable {
+    private static final long serialVersionUID = 3719599332298720260L;
     private Long id;
 
     private Long customerId;

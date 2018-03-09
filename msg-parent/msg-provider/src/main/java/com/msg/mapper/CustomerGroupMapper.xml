@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="/.CustomerGroupMapper" >
-  <resultMap id="BaseResultMap" type="/.CustomerGroup" >
+<mapper namespace="com.msg.mapper.CustomerGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.msg.entity.CustomerGroup" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="memo" property="memo" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from customer_group
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="/.CustomerGroup" >
+  <insert id="insert" parameterType="com.msg.entity.CustomerGroup" >
     insert into customer_group (id, name, memo, 
       create_id, create_time, modify_id, 
       modify_time, valid)
@@ -32,7 +32,7 @@
       #{createId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{modifyId,jdbcType=VARCHAR}, 
       #{modifyTime,jdbcType=TIMESTAMP}, #{valid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="/.CustomerGroup" >
+  <insert id="insertSelective" parameterType="com.msg.entity.CustomerGroup" >
     insert into customer_group
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="/.CustomerGroup" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.msg.entity.CustomerGroup" >
     update customer_group
     <set >
       <if test="name != null" >
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="/.CustomerGroup" >
+  <update id="updateByPrimaryKey" parameterType="com.msg.entity.CustomerGroup" >
     update customer_group
     set name = #{name,jdbcType=VARCHAR},
       memo = #{memo,jdbcType=VARCHAR},

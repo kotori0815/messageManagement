@@ -130,7 +130,7 @@
 
 	<!-- 自动扫描mybatis映射 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.msg"/>
+		<property name="basePackage" value="com.msg.mapper"/>
 	</bean>
 
 	<!-- 事务 -->
@@ -176,7 +176,7 @@
 		</aop:aspect>-->
 	</aop:config>
 
-	<import resource="classpath:spring/spring-mktsms-provider.xml" />
+	<import resource="classpath:spring/spring-msg-provider.xml" />
 	<import resource="classpath:spring/dubbo-service-consumer.xml" />
 
 </beans>

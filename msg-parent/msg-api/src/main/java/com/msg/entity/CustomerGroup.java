@@ -1,8 +1,10 @@
 package com.msg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CustomerGroup {
+public class CustomerGroup implements Serializable{
+    private static final long serialVersionUID = -7018612236102013544L;
     private Long id;
 
     private String name;

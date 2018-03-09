@@ -1,8 +1,10 @@
 package com.msg.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SendRecord {
+public class SendRecord implements Serializable {
+    private static final long serialVersionUID = -7428219855050904267L;
     private Long id;
 
     private Long msgId;
